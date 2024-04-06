@@ -1,4 +1,140 @@
-<p>menu-bar works!</p>
-<!-- <button mat-icon-button>
-    <mat-icon>refresh</mat-icon>
-  </button> -->
+<div class="d-flex justify-content-between main-width mt-3">
+
+  <div>
+     <span><i class="bi bi-arrow-clockwise"></i></span>
+  </div>
+
+  <div>
+     <span class="dropdown">
+        <a class="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+           <i class="bi bi-globe"></i>
+        </a>
+        <ul class="dropdown-menu">
+           <li><a class="dropdown-item" *ngFor="let continent of continentList">{{continent}}</a></li>
+        </ul>
+     </span>
+  </div>
+
+  <div>
+     <span><i class="bi bi-translate"> <i class="bi bi-check-square"></i></i></span>
+  </div>
+
+  <div>
+     <span class="dropdown">
+        <a class="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+           <i class="bi bi-currency-euro"></i>
+        </a>
+        <ul class="dropdown-menu">
+           <li><a class="dropdown-item" *ngFor="let currency of currencyList">{{currency}}</a></li>
+        </ul>
+     </span>
+  </div>
+
+  <div>
+     <span class="dropdown">
+        <a class="text-decoration-none text-dark" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+           User
+        </a>
+        <ul class="dropdown-menu">
+           <li><a class="dropdown-item dropdown-item exampleModalLabel" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2">Login</a></li>
+           <li><a class="dropdown-item">Profile</a></li>
+           <li><a class="dropdown-item">Logout</a></li>
+           <li><a class="dropdown-item exampleModalLabel" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal1">Register</a></li>
+           <li><a class="dropdown-item">Close</a></li>
+        </ul>
+     </span>
+  </div>
+
+  <div>
+     <span>Page</span>
+  </div>
+
+  <div>
+     <span>Edition <i class="bi bi-check-square"></i></span>
+  </div>
+
+  <div>
+     <span>View</span>
+  </div>
+
+  <div>
+     <span>Cols</span>
+  </div>
+
+  <div>
+     <span>Freeze: N <i class="bi bi-arrows-vertical"></i></span>
+  </div>
+
+  <div>
+     <span>Expand: N <i class="bi bi-arrows-vertical"></i></span>
+  </div>
+
+  <div>
+     <span>Sort <i class="bi bi-check-square"></i></span>
+  </div>
+
+  <div>
+     <span>Filter <i class="bi bi-check-square"></i></span>
+  </div>
+
+  <div>
+     <span>Level-Set <i class="bi bi-check-square"></i></span>
+  </div>
+
+  <div>
+     <span>Cats</span>
+  </div>
+
+  <div>
+     <span>Compare <i class="bi bi-check-square"></i></span>
+  </div>
+
+  <div>
+     <span>Timer <i class="bi bi-check-square"></i></span>
+  </div>
+
+  <div>
+     <span> Countdown & Locks Wait Status</span>
+  </div>
+
+</div>
+
+
+<!-- Modal -->
+<div class="modal modal-md fade mt-3" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel1">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- <app-register></app-register> -->
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+
+<!-- Modal -->
+<div class="modal modal-md fade mt-3" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel2">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" 
+              (click)="closePopup()" #closeBtn></button>
+      </div>
+      <div class="modal-body">
+        <!-- <app-login></app-login> -->
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+<!-- Modal -->
