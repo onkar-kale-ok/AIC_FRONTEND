@@ -1,0 +1,19 @@
+<form [formGroup]="loginForm">
+   <div class="alert alert-danger" role="alert" *ngIf="userNotRegistered">
+      Please register first!!!
+   </div>
+   <div class="alert alert-success" role="alert" *ngIf="userRegistered">
+      Login successful!!!
+   </div>
+   <div class="mb-3">
+      <label for="id2" class="form-label">Email address</label>
+      <input type="text" class="form-control" id="id2" formControlName="email">
+   </div>
+   <div class="mb-3">
+      <label for="id3" class="form-label">Password</label>
+      <input type="text" class="form-control" id="id3" formControlName="password">
+   </div>
+   <div class="d-grid gap-2">
+      <button class="btn btn-primary" type="button" (click)="login()">LOGIN</button>
+   </div>
+</form>

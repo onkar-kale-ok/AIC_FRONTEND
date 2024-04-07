@@ -1,5 +1,6 @@
 import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
-import { HttpService } from '../servies/http.service';
+import { HttpService } from '../services/http.service';
+import { AfterLoginServiceService } from '../services/after-login-service.service';
 
 @Component({
   selector: 'app-menu-bar',
@@ -12,17 +13,20 @@ export class MenuBarComponent {
 
   currencyList : string [] = [];
 
+  userLoggedIn : boolean = true;
+
   @ViewChild('closeBtn') closeBtn! : ElementRef<any>;
 
   @Output() emitAction = new EventEmitter<any>();
 
-  constructor(private http: HttpService){
+  constructor(private http: HttpService, private afterLogin: AfterLoginServiceService){
 
   }
 
   ngOnInit(){
     this.getContinent();
     this.getCurrency();
+    this.user();
   }
 
   getContinent(){
@@ -49,5 +53,18 @@ export class MenuBarComponent {
     if (this.closeBtn && this.closeBtn.nativeElement) {
       this.closeBtn.nativeElement.click();
     }
+  }
+
+  user(){
+    if(this.afterLogin.getUser()){
+      this.userLoggedIn = false
+    }
+    else{
+      this.userLoggedIn = true;
+    }
+  }
+
+  logout(){
+    localStorage.clear();
   }
 }

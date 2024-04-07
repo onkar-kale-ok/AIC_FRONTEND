@@ -9,3 +9,8 @@ span{
    cursor: pointer;
    border-radius: 3px;
 }
+
+li.disabled{
+   cursor: not-allowed;
+   opacity: .7;
+  }

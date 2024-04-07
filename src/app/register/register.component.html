@@ -1,0 +1,35 @@
+<div class="div">
+   <div class="row">
+      <div class="d-grid gap-2">
+         <div class="col-md-12 border rounded shadow">
+            <div class="d-grid gap-2">
+               <button class="btn btn-light btn-social-icon btn-google" (click)="signWithGoogle()">
+                  <span>
+                     <img src="../../assets/Images/google.png" alt="">
+                  </span>
+                  <span class="fab fa-google">
+                     Sign In with Google
+                  </span>
+               </button>
+            </div>
+         </div>
+         <div class="col-md-12">
+            <div class="d-grid gap-2 border rounded shadow">
+               <button type="button" (click)="signInWithFB()" class="btn btn-light btn-block">
+                  <span>
+                     <img src="../../assets/Images/facebook.png" alt="">
+                  </span>
+                  <span>
+                     Login with Facebook
+                  </span>
+               </button>
+            </div>
+         </div>
+         <div class="col-md-12 border rounded shadow">
+            <div class="d-grid gap-2" *ngIf="isLoggedin === true">
+               <button type="button" (click)="signOut()" class="btn btn-light">Sign Out</button>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
