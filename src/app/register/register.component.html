@@ -1,33 +1,55 @@
 <div class="div">
    <div class="row">
       <div class="d-grid gap-2">
-         <div class="col-md-12 border rounded shadow">
+         <div class="col-md-12 border rounded shadow" *ngIf="!isLoggedin">
             <div class="d-grid gap-2">
                <button class="btn btn-light btn-social-icon btn-google" (click)="signWithGoogle()">
                   <span>
                      <img src="../../assets/Images/google.png" alt="">
                   </span>
                   <span class="fab fa-google">
-                     Sign In with Google
+                     Register with Google
                   </span>
                </button>
             </div>
          </div>
-         <div class="col-md-12">
+         <div class="col-md-12" *ngIf="!isLoggedin">
             <div class="d-grid gap-2 border rounded shadow">
                <button type="button" (click)="signInWithFB()" class="btn btn-light btn-block">
                   <span>
                      <img src="../../assets/Images/facebook.png" alt="">
                   </span>
                   <span>
-                     Login with Facebook
+                     Register with Facebook
                   </span>
                </button>
             </div>
          </div>
+         <div class="col-md-12" *ngIf="isLoggedin">
+            <!-- <div class="d-grid gap-2 border rounded shadow p-3">
+               <span>
+                  <span class="fw-bold">User Name : </span> <span>{{user?.name}}</span> <br>
+                  <span class="fw-bold">Email : </span> <span>{{user?.email}}</span>
+               </span>
+            </div> -->
+            <div class="row">
+               <div class="col-md-6">
+                  <span class="fw-bold">User Name : </span>
+               </div>
+               <div class="col-md-6">
+                  <span class="">{{user?.name}}</span>
+               </div>
+               <div class="col-md-6">
+                  <span class="fw-bold">Email : </span>
+               </div>
+               <div class="col-md-6">
+                  <span class="">{{user?.email}}</span>
+               </div>
+            </div>
+         </div>
          <div class="col-md-12 border rounded shadow">
             <div class="d-grid gap-2" *ngIf="isLoggedin === true">
-               <button type="button" (click)="signOut()" class="btn btn-light">Sign Out</button>
+               <button type="button" (click)="signOut()" class="btn btn-light bg-success text-white">Sign Out</button>
             </div>
          </div>
       </div>

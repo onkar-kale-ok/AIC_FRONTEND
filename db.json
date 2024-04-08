@@ -4,5 +4,22 @@
       "email": "test@test.com",
       "password": "test@123"
     }
+  ],
+  "continent": [
+    "Asia",
+    "Africa",
+    "North America",
+    "South America",
+    "Antartica",
+    "Europe",
+    "Oceania"
+  ],
+  "currency": [
+    "Dollar $",
+    "Euro €",
+    "Pound £",
+    "Yen ¥",
+    "Franc ₣",
+    "Rupee ₹"
   ]
 }
