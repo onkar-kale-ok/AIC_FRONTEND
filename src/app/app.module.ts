@@ -14,6 +14,12 @@ import { MenuBarComponent } from './menu-bar/menu-bar.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
+import { TabBarComponent } from './tab-bar/tab-bar.component';
+import { TreeGridAAAComponent } from './tree-grid-aaa/tree-grid-aaa.component';
+import { TreeGridBBBComponent } from './tree-grid-bbb/tree-grid-bbb.component';
+import { TreeGridCCCComponent } from './tree-grid-ccc/tree-grid-ccc.component';
+import { TreeGridDDDComponent } from './tree-grid-ddd/tree-grid-ddd.component';
+import { TreeGridEEEComponent } from './tree-grid-eee/tree-grid-eee.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +27,13 @@ import { RegisterComponent } from './register/register.component';
     LandingPageComponent,
     MenuBarComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    TabBarComponent,
+    TreeGridAAAComponent,
+    TreeGridBBBComponent,
+    TreeGridCCCComponent,
+    TreeGridDDDComponent,
+    TreeGridEEEComponent
   ],
   imports: [
     BrowserModule,
