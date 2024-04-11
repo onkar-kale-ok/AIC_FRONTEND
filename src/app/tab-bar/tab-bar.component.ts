@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { HttpService } from '../services/http.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -10,70 +10,59 @@ import { Router } from '@angular/router';
 })
 export class TabBarComponent {
 
-  tabForm! : FormGroup;
+  tabForm!: FormGroup;
 
-  tabBarList : any;
+  tabValue: string = "";
+  tabBarList: string[] = [];
+  res: any;
+  tabLength: any;
 
-  res : any;
+  @Input() dataRecieved: any;
 
-  tabLength : any;
-
-  emptyTabBar : boolean = false;
-
-  tabValue : string = ""
-
-  tabObj : NewTabFn = new NewTabFn();
-
-  constructor(private http : HttpService, private fb : FormBuilder, private router: Router){
+  constructor(private http: HttpService, private fb: FormBuilder, private router: Router) {
 
   }
 
-  ngOnInit(){
-    this.form();
+  ngOnInit() {
     this.getTab();
+    this.form();
   }
 
-
-  form(){
+  form() {
     this.tabForm = this.fb.group({
-      newTabBar : ['Tab', []]
+      newTabBar: ['Tab', []]
     })
   }
 
-  save(){
-    // const endPoint = "tabs";
-    // this.http.postData(endPoint, this.tabForm.value).subscribe((resp:any)=>{
-    //   console.log('formData', resp);
-    //   this.tabBarList.push(resp);
-    // })
-    this.tabValue = "New Tab"
+  save() {
+    const endPoint = "tabs";
+    this.tabValue = this.dataRecieved;
+    if (this.tabValue == undefined) {
+      this.tabValue = "New Tab"
+    }
+    console.log('tabValue', this.tabValue)
     this.tabBarList.push(this.tabValue);
-    this.router.navigate(['/tree-grid-bbb'])
+    console.log('tabBarList', this.tabBarList)
   }
 
-  getTab(){
+  pageClick(pageName: any) {
+    console.log('pagenName', pageName);
+    this.router.navigate([`${pageName}`]);
+  }
+
+  getTab() {
     const endPoint = "tabs";
-    this.http.getData(endPoint).subscribe((resp:any)=>{
+    this.http.getData(endPoint).subscribe((resp: any) => {
       this.tabBarList = resp;
       console.log(this.tabBarList);
-      this.res = Math.max.apply(Math, resp.map(function(o:any) { return o.id }));
-      console.log('max',this.res);
+      this.res = Math.max.apply(Math, resp.map(function (o: any) { return o.id }));
+      console.log('max', this.res);
       this.tabLength = resp.length
     })
   }
 
-  deleteTab(index : number, itemObj : any){
-    const endPoint = "tabs/" + itemObj.id;
-    this.http.deleteData(endPoint).subscribe((resp:any)=>{
-      // if(resp.length == null){
-      //   this.emptyTabBar = true;
-      // }else{
-        this.tabBarList.splice(index,1);
-      // }
-    })
+  deleteTab(index: any) {
+    this.tabBarList.splice(index, 1)
   }
-}
 
-export class NewTabFn {
-  tabName! : 'Tab'
 }

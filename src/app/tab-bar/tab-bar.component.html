@@ -1,35 +1,11 @@
-<!-- <div class="main-width">
-   <div class="row">
-      <div class="col-md-1 border" *ngFor="let item of tabBarList; let i = index">
-         {{item.newTabBar + item.id}}
-         <span class="cursor border" (click)="save()" *ngIf="!emptyTabBar">&nbsp;+&nbsp;</span>
-         <span class="cursor border" (click)="save()" *ngIf="emptyTabBar">&nbsp;+&nbsp;</span>
-         <span class="cursor border" (click)="deleteTab(i, item)">&nbsp;x&nbsp;</span>
-      </div>
-   </div>
-</div> -->
-
 <div class="">
-   <span class="border border-white">
-      <button type="button" class="btn btn-dark rounded-0" routerLink="/tree-grid-aaa" *ngFor="let tab of tabBarList">{{tab}}</button>
-      <button type="button" class="btn btn-dark rounded-0"><i
-            class="bi bi-x-lg"></i></button>
+   <span class="border border-white" *ngFor="let tab of tabBarList; let i = index">
+      <button type="button" class="btn btn-dark rounded-0" (click)="pageClick(tab)">
+         {{tab}}
+      </button>
+      <button type="button" class="btn btn-dark rounded-0" (click)="deleteTab(i)"><i class="bi bi-x-lg"></i></button>
       <button type="button" class="btn btn-dark rounded-0" (click)="save()"><i class="bi bi-plus-lg"></i></button>
    </span>
 </div>
 
-<!-- <form [formGroup]="tabForm" style="display: none;">
-   <div class="mb-3">
-      <label for="id1" class="form-label">Add new tab</label>
-      <input type="text" class="form-control" id="id1" formControlName="newTabBar">
-   </div>
-   <button type="submit" class="btn btn-primary" (click)="save()">Submit</button>
-</form> -->
-
-<!-- <div>
-   <button>
-      <router-outlet></router-outlet>
-   </button>
-</div> -->
-
-<!-- {{tabBarList}} -->
+<!-- <h5>Data Recieved : {{dataRecieved}}</h5> -->

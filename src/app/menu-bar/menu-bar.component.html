@@ -1,168 +1,169 @@
+<app-tab-bar [dataRecieved]="parentMsg"></app-tab-bar>
+
 <div class="d-flex justify-content-between main-width mt-3 mb-3">
 
-  <div>
-     <span><i class="bi bi-arrow-clockwise"></i></span>
-  </div>
-
-  <div>
-     <span class="dropdown">
-        <a class="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-           <i class="bi bi-globe"></i>
-        </a>
-        <ul class="dropdown-menu">
-           <li><a class="dropdown-item" *ngFor="let continent of continentList">{{continent}}</a></li>
-        </ul>
-     </span>
-  </div>
-
-  <div>
-     <span><i class="bi bi-translate"> <i class="bi bi-check-square"></i></i></span>
-  </div>
-
-  <div>
-     <span class="dropdown">
-        <a class="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-           <i class="bi bi-currency-euro"></i>
-        </a>
-        <ul class="dropdown-menu">
-           <li><a class="dropdown-item" *ngFor="let currency of currencyList">{{currency}}</a></li>
-        </ul>
-     </span>
-  </div>
-
-  <div>
-     <span class="dropdown">
-        <a class="text-decoration-none text-dark" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-           User
-        </a>
-        <ul class="dropdown-menu">
-           <li><a class="dropdown-item dropdown-item exampleModalLabel" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2" [class.disabled]="!userLoggedIn">Login</a></li>
-           <li><a class="dropdown-item" [class.disabled]="userLoggedIn">Profile</a></li>
-           <li><a class="dropdown-item" [class.disabled]="userLoggedIn" (click)="logout()">Logout</a></li>
-           <li><a class="dropdown-item exampleModalLabel" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal1" [class.disabled]="!userLoggedIn">Register</a></li>
-           <li><a class="dropdown-item">Close</a></li>
-        </ul>
-     </span>
-  </div>
-
-  <div>
-     <!-- <span >Page</span> -->
-     <span type="" class="" data-bs-toggle="modal" data-bs-target="#exampleModal3">
-      <!-- <button > -->
-         Page
-       <!-- </button> -->
-     </span>
-  </div>
-
-  <div>
-     <span>Edition <i class="bi bi-check-square"></i></span>
-  </div>
-
-  <div>
-     <span>View</span>
-  </div>
-
-  <div>
-     <span>Cols</span>
-  </div>
-
-  <div>
-     <span>Freeze: N <i class="bi bi-arrows-vertical"></i></span>
-  </div>
-
-  <div>
-     <span>Expand: N <i class="bi bi-arrows-vertical"></i></span>
-  </div>
-
-  <div>
-     <span>Sort <i class="bi bi-check-square"></i></span>
-  </div>
-
-  <div>
-     <span>Filter <i class="bi bi-check-square"></i></span>
-  </div>
-
-  <div>
-     <span>Level-Set <i class="bi bi-check-square"></i></span>
-  </div>
-
-  <div>
-     <span>Cats</span>
-  </div>
-
-  <div>
-     <span>Compare <i class="bi bi-check-square"></i></span>
-  </div>
-
-  <div>
-     <span>Timer <i class="bi bi-check-square"></i></span>
-  </div>
-
-  <div>
-     <span> Countdown & Locks Wait Status</span>
-  </div>
-
-</div>
-
-
-<!-- Modal -->
-<div class="modal modal-md fade mt-3" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel1">Register with Social Media</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <app-register></app-register>
-      </div>
-      <!-- <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-<!-- Modal -->
-
-<!-- Modal -->
-<div class="modal modal-md fade mt-3" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel2">Login with Social Media</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" 
-              (click)="closePopup()" #closeBtn></button>
-      </div>
-      <div class="modal-body">
-        <app-login></app-login>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Modal -->
- 
- <!-- Modal -->
- <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-   <div class="modal-dialog">
-     <div class="modal-content">
-       <div class="modal-header">
-         <h1 class="modal-title fs-5" id="exampleModalLabel3">Modal title</h1>
-         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-       </div>
-       <div class="modal-body">
-         <span routerLink="/tree-grid-aaa">AAA</span>
-         <span routerLink="/tree-grid-bbb">BBB</span>
-         <span routerLink="/tree-grid-ccc">CCC</span>
-         <span routerLink="/tree-grid-ddd">DDD</span>
-         <span routerLink="/tree-grid-eee">EEE</span>
-       </div>
-       <div class="modal-footer">
-         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-         <button type="button" class="btn btn-primary">Save changes</button>
-       </div>
-     </div>
+   <div>
+      <span><i class="bi bi-arrow-clockwise"></i></span>
    </div>
- </div>
+
+   <div>
+      <span class="dropdown">
+         <a class="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-globe"></i>
+         </a>
+         <ul class="dropdown-menu">
+            <li><a class="dropdown-item" *ngFor="let continent of continentList">{{continent}}</a></li>
+         </ul>
+      </span>
+   </div>
+
+   <div>
+      <span><i class="bi bi-translate"> <i class="bi bi-check-square"></i></i></span>
+   </div>
+
+   <div>
+      <span class="dropdown">
+         <a class="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-currency-euro"></i>
+         </a>
+         <ul class="dropdown-menu">
+            <li><a class="dropdown-item" *ngFor="let currency of currencyList">{{currency}}</a></li>
+         </ul>
+      </span>
+   </div>
+
+   <div>
+      <span class="dropdown">
+         <a class="text-decoration-none text-dark" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            User
+         </a>
+         <ul class="dropdown-menu">
+            <li><a class="dropdown-item dropdown-item exampleModalLabel" type="button" data-bs-toggle="modal"
+                  data-bs-target="#exampleModal2" [class.disabled]="!userLoggedIn">Login</a></li>
+            <li><a class="dropdown-item" [class.disabled]="userLoggedIn">Profile</a></li>
+            <li><a class="dropdown-item" [class.disabled]="userLoggedIn" (click)="logout()">Logout</a></li>
+            <li><a class="dropdown-item exampleModalLabel" type="button" data-bs-toggle="modal"
+                  data-bs-target="#exampleModal1" [class.disabled]="!userLoggedIn">Register</a></li>
+            <li><a class="dropdown-item">Close</a></li>
+         </ul>
+      </span>
+   </div>
+
+   <div>
+      <span type="" class="" data-bs-toggle="modal" data-bs-target="#exampleModal3">Page</span>
+   </div>
+
+   <div>
+      <span>Edition <i class="bi bi-check-square"></i></span>
+   </div>
+
+   <div>
+      <span>View</span>
+   </div>
+
+   <div>
+      <span>Cols</span>
+   </div>
+
+   <div>
+      <span>Freeze: N <i class="bi bi-arrows-vertical"></i></span>
+   </div>
+
+   <div>
+      <span>Expand: N <i class="bi bi-arrows-vertical"></i></span>
+   </div>
+
+   <div>
+      <span>Sort <i class="bi bi-check-square"></i></span>
+   </div>
+
+   <div>
+      <span>Filter <i class="bi bi-check-square"></i></span>
+   </div>
+
+   <div>
+      <span>Level-Set <i class="bi bi-check-square"></i></span>
+   </div>
+
+   <div>
+      <span>Cats</span>
+   </div>
+
+   <div>
+      <span>Compare <i class="bi bi-check-square"></i></span>
+   </div>
+
+   <div>
+      <span>Timer <i class="bi bi-check-square"></i></span>
+   </div>
+
+   <div>
+      <span> Countdown & Locks Wait Status</span>
+   </div>
+
+</div>
+
+
+<!-- Modal For Register -->
+<div class="modal modal-md fade mt-3" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel"
+   aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel1">Register with Social Media</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+         </div>
+         <div class="modal-body">
+            <app-register></app-register>
+         </div>
+      </div>
+   </div>
+</div>
+
+<!-- Modal For Login -->
+<div class="modal modal-md fade mt-3" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel"
+   aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel2">Login with Social Media</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closePopup()"
+               #closeBtn></button>
+         </div>
+         <div class="modal-body">
+            <app-login></app-login>
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+         </div>
+      </div>
+   </div>
+</div>
+
+<!-- Modal For Page -->
+<div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModal3">Page Name</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+         </div>
+         <div class="modal-body">
+            <div class="list-group">
+
+               <form [formGroup]="inputForm">
+                  <a class="list-group-item list-group-item-action" *ngFor="let page of pageList"
+                     (click)="onClick(page)">{{page}}</a>
+               </form>
+
+            </div>
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+         </div>
+      </div>
+   </div>
+</div>
+
+<router-outlet></router-outlet>

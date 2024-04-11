@@ -22,8 +22,14 @@
     "Franc ₣",
     "Rupee ₹"
   ],
-  
   "tabs": [
     "Default Tab"
+  ],
+  "pages": [
+    "tree-grid-aaa",
+    "tree-grid-bbb",
+    "tree-grid-ccc",
+    "tree-grid-ddd",
+    "tree-grid-eee"
   ]
 }
