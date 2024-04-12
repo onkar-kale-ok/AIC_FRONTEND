@@ -1,7 +1,7 @@
-.main-width{
+/* .main-width{
    margin-left: 2.5%;
    margin-right: 2.5%;
-}
+} */
 
 span{
    border: 1px solid black;
@@ -9,3 +9,8 @@ span{
    cursor: pointer;
    border-radius: 3px;
 }
+
+li.disabled{
+   cursor: not-allowed;
+   opacity: .7;
+  }
