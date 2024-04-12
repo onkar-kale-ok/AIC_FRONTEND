@@ -16,8 +16,8 @@ export class TabBarComponent {
   tabBarList: string[] = [];
   res: any;
   tabLength: number = 1;
-  lastElement : any;
-  indexOfLastElement : any;
+  lastElement: any;
+  indexOfLastElement: any;
 
   @Input() dataRecieved: any;
 
@@ -30,7 +30,7 @@ export class TabBarComponent {
     this.form();
   }
 
-  ngOnChanges(){
+  ngOnChanges() {
     this.addTab();
   }
 
@@ -41,36 +41,29 @@ export class TabBarComponent {
   }
 
   addTab() {
-    // const endPoint = "tabs";
     this.tabValue = this.dataRecieved;
     if (this.tabValue == undefined) {
       this.tabValue = "New Tab";
-      // this.router.navigate(['/'])
     }
-    // if(this.tabValue = "New Tab"){
-    //   this.tabBarList.splice(this.indexOfLastElement,1, this.tabValue);
-    //   console.log('lastElVal',this.indexOfLastElement);
-    //   console.log('lastEl',this.lastElement);
-    // }
     if (this.tabValue != undefined) {
-      if(this.tabBarList.includes(this.tabValue)){
-        if(!(this.tabBarList.includes("New Tab"))){
+      if (this.tabBarList.includes(this.tabValue)) {
+        if (!(this.tabBarList.includes("New Tab"))) {
           this.tabBarList.push("New Tab");
           this.router.navigate(['/'])
         }
       }
-      else{
-        this.tabBarList.push(this.tabValue);
+      else {
+        // this.tabBarList.push(this.tabValue);
+        const newTabIndex = this.tabBarList.indexOf("New Tab");
+        if (newTabIndex !== -1) {
+
+          this.tabBarList[newTabIndex] = this.tabValue;
+        } else {
+
+          this.tabBarList.push(this.tabValue);
+        }
       }
     }
-    // if(this.lastElement = this.tabBarList[this.tabBarList.length-1] || "Default Tab"){
-    //   this.indexOfLastElement = this.tabBarList.indexOf(this.lastElement);
-    //   console.log('lastElVal',this.indexOfLastElement);
-    //   console.log('lastEl',this.lastElement);
-    //   if(this.lastElement == 'Default Tab' ){
-    //     this.tabBarList.splice(this.lastElement,1,this.tabValue);
-    //   }
-    // }
   }
 
   deleteTab(index: any) {
@@ -79,11 +72,11 @@ export class TabBarComponent {
   }
 
   pageClick(pageName: any) {
-    if(pageName){
+    if (pageName) {
       console.log('pageName', pageName);
       this.router.navigate([`${pageName}`]);
     }
-    if(pageName == "New Tab"){
+    if (pageName == "New Tab") {
       // This Is Default Tab If We Want To Keep Page Details Blank In "New Tab"
       this.router.navigate(['/']);
     }
