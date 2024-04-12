@@ -52,7 +52,12 @@ export class TabBarComponent {
     //   console.log('lastEl',this.lastElement);
     // }
     if (this.tabValue != undefined) {
-      this.tabBarList.push(this.tabValue);
+      if(this.tabBarList.includes(this.tabValue)){
+        
+      }
+      else{
+        this.tabBarList.push(this.tabValue);
+      }
     }
     // if(this.lastElement = this.tabBarList[this.tabBarList.length-1] || "Default Tab"){
     //   this.indexOfLastElement = this.tabBarList.indexOf(this.lastElement);
