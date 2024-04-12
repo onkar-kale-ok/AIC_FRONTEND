@@ -41,10 +41,11 @@ export class TabBarComponent {
   }
 
   addTab() {
-    const endPoint = "tabs";
+    // const endPoint = "tabs";
     this.tabValue = this.dataRecieved;
     if (this.tabValue == undefined) {
       this.tabValue = "New Tab";
+      // this.router.navigate(['/'])
     }
     // if(this.tabValue = "New Tab"){
     //   this.tabBarList.splice(this.indexOfLastElement,1, this.tabValue);
@@ -52,7 +53,15 @@ export class TabBarComponent {
     //   console.log('lastEl',this.lastElement);
     // }
     if (this.tabValue != undefined) {
-      this.tabBarList.push(this.tabValue);
+      if(this.tabBarList.includes(this.tabValue)){
+        if(!(this.tabBarList.includes("New Tab"))){
+          this.tabBarList.push("New Tab");
+          this.router.navigate(['/'])
+        }
+      }
+      else{
+        this.tabBarList.push(this.tabValue);
+      }
     }
     // if(this.lastElement = this.tabBarList[this.tabBarList.length-1] || "Default Tab"){
     //   this.indexOfLastElement = this.tabBarList.indexOf(this.lastElement);
@@ -70,8 +79,14 @@ export class TabBarComponent {
   }
 
   pageClick(pageName: any) {
-    console.log('pagenName', pageName);
-    this.router.navigate([`${pageName}`]);
+    if(pageName){
+      console.log('pageName', pageName);
+      this.router.navigate([`${pageName}`]);
+    }
+    if(pageName == "New Tab"){
+      // This Is Default Tab If We Want To Keep Page Details Blank In "New Tab"
+      this.router.navigate(['/']);
+    }
   }
 
   getTab() {

@@ -9,8 +9,8 @@ import { TreeGridEEEComponent } from './tree-grid-eee/tree-grid-eee.component';
 
 const routes: Routes = [
   // {path : 'login', component : LoginComponent},
+  // {path : '', redirectTo : '/tree-grid-aaa', pathMatch : 'full'},
   {path : 'tree-grid-aaa', component:  TreeGridAAAComponent},
-  {path : '', redirectTo : '/tree-grid-aaa', pathMatch : 'full'},
   {path : 'tree-grid-bbb', component:  TreeGridBBBComponent},
   {path : 'tree-grid-ccc', component:  TreeGridCCCComponent},
   {path : 'tree-grid-ddd', component:  TreeGridDDDComponent},
