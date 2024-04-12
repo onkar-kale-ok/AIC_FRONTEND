@@ -15,7 +15,9 @@ export class TabBarComponent {
   tabValue: string = "";
   tabBarList: string[] = [];
   res: any;
-  tabLength: any;
+  tabLength: number = 1;
+  lastElement : any;
+  indexOfLastElement : any;
 
   @Input() dataRecieved: any;
 
@@ -28,21 +30,43 @@ export class TabBarComponent {
     this.form();
   }
 
+  ngOnChanges(){
+    this.addTab();
+  }
+
   form() {
     this.tabForm = this.fb.group({
       newTabBar: ['Tab', []]
     })
   }
 
-  save() {
+  addTab() {
     const endPoint = "tabs";
     this.tabValue = this.dataRecieved;
     if (this.tabValue == undefined) {
-      this.tabValue = "New Tab"
+      this.tabValue = "New Tab";
     }
-    console.log('tabValue', this.tabValue)
-    this.tabBarList.push(this.tabValue);
-    console.log('tabBarList', this.tabBarList)
+    // if(this.tabValue = "New Tab"){
+    //   this.tabBarList.splice(this.indexOfLastElement,1, this.tabValue);
+    //   console.log('lastElVal',this.indexOfLastElement);
+    //   console.log('lastEl',this.lastElement);
+    // }
+    if (this.tabValue != undefined) {
+      this.tabBarList.push(this.tabValue);
+    }
+    // if(this.lastElement = this.tabBarList[this.tabBarList.length-1] || "Default Tab"){
+    //   this.indexOfLastElement = this.tabBarList.indexOf(this.lastElement);
+    //   console.log('lastElVal',this.indexOfLastElement);
+    //   console.log('lastEl',this.lastElement);
+    //   if(this.lastElement == 'Default Tab' ){
+    //     this.tabBarList.splice(this.lastElement,1,this.tabValue);
+    //   }
+    // }
+  }
+
+  deleteTab(index: any) {
+    this.tabBarList.splice(index, 1);
+    console.log('Tab When Deleted', this.tabBarList.length);
   }
 
   pageClick(pageName: any) {
@@ -54,15 +78,11 @@ export class TabBarComponent {
     const endPoint = "tabs";
     this.http.getData(endPoint).subscribe((resp: any) => {
       this.tabBarList = resp;
-      console.log(this.tabBarList);
-      this.res = Math.max.apply(Math, resp.map(function (o: any) { return o.id }));
-      console.log('max', this.res);
-      this.tabLength = resp.length
+      // console.log(this.tabBarList);
+      // this.res = Math.max.apply(Math, resp.map(function (o: any) { return o.id }));
+      // console.log('max', this.res);
+      // this.tabLength = resp.length
     })
-  }
-
-  deleteTab(index: any) {
-    this.tabBarList.splice(index, 1)
   }
 
 }

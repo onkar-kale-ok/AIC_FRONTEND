@@ -1,11 +1,29 @@
 <div class="">
+
    <span class="border border-white" *ngFor="let tab of tabBarList; let i = index">
+
+      <!-- Tab Button -->
       <button type="button" class="btn btn-dark rounded-0" (click)="pageClick(tab)">
          {{tab}}
       </button>
-      <button type="button" class="btn btn-dark rounded-0" (click)="deleteTab(i)"><i class="bi bi-x-lg"></i></button>
-      <button type="button" class="btn btn-dark rounded-0" (click)="save()"><i class="bi bi-plus-lg"></i></button>
+      <!-- Tab Button -->
+
+      <!-- Delete Tab Button -->
+      <button type="button" class="btn btn-dark rounded-0" (click)="deleteTab(i)">
+         <span><i class="bi bi-x-lg"></i></span>
+      </button>
+      <!-- Delete Tab Button -->
+
    </span>
+
+      <!-- Add Tab Button -->
+      <button type="button" class="btn btn-dark rounded-0" (click)="addTab()">
+         <span><i class="bi bi-plus-lg"></i></span>
+      </button>
+      <!-- Add Tab Button -->
+
 </div>
 
 <!-- <h5>Data Recieved : {{dataRecieved}}</h5> -->
+<!-- {{tabBarList.length}} -->
+{{this.tabBarList[this.tabBarList.length-1]}}

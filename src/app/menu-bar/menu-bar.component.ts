@@ -96,7 +96,7 @@ export class MenuBarComponent {
     })
   }
 
-  onClick(name: string) {
+  pageClick(name: string) {
     console.log('name', name);
     const endPoint = "pages";
     this.http.getData(endPoint).subscribe((resp: any) => {
@@ -104,7 +104,7 @@ export class MenuBarComponent {
         console.log('nameValue', name);
         this.router.navigate([`${name}`]);
         this.parentMsg = name;
-        this.tabList.push('Tab');
+        // this.tabList.push('Tab');
       }
     })
   }
