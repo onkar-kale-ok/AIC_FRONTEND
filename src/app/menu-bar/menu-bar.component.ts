@@ -97,16 +97,19 @@ export class MenuBarComponent {
   }
 
   pageClick(name: string) {
-    console.log('name', name);
-    const endPoint = "pages";
-    this.http.getData(endPoint).subscribe((resp: any) => {
-      if (name) {
-        console.log('nameValue', name);
-        this.router.navigate([`${name}`]);
-        this.parentMsg = name;
-        // this.tabList.push('Tab');
-      }
-    })
+    if (name != "New Tab") {
+      console.log('nameValue', name);
+      this.router.navigate([`${name}`]);
+      this.parentMsg = name;
+      // this.tabList.push('Tab');
+    }
+    if (name == "New Tab") {
+      console.log('VerifyNewTab', name)
+
+      this.router.navigate(['/tree-grid-ccc']);
+      this.parentMsg = name;
+      console.log('tabNot', this.parentMsg)
+    }
   }
 
   getPages() {
