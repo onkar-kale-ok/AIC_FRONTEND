@@ -29,9 +29,7 @@ export class MenuBarComponent {
 
   userLoggedIn: boolean = true;
 
-  @ViewChild('closeBtn') closeBtn!: ElementRef<any>;
-
-  @Output() emitAction = new EventEmitter<any>();
+  @ViewChild('closeBtn') closeBtn: ElementRef<any>;
 
   constructor(private http: HttpService, private afterLogin: AfterLoginServiceService, private fb: FormBuilder, private router: Router) {
 
@@ -65,10 +63,6 @@ export class MenuBarComponent {
     })
   }
 
-  ngAfterViewInit() {
-    console.log("Close Btn", this.closeBtn.nativeElement.click());
-  }
-
   closePopup() {
     if (this.closeBtn && this.closeBtn.nativeElement) {
       this.closeBtn.nativeElement.click();
@@ -98,18 +92,19 @@ export class MenuBarComponent {
 
   pageClick(name: string) {
     if (name != "New Tab") {
+      this.closePopup();
       console.log('nameValue', name);
       this.router.navigate([`${name}`]);
       this.parentMsg = name;
       // this.tabList.push('Tab');
     }
-    if (name == "New Tab") {
-      console.log('VerifyNewTab', name)
+    // if (name == "New Tab") {
+    //   console.log('VerifyNewTab', name)
 
-      this.router.navigate(['/tree-grid-ccc']);
-      this.parentMsg = name;
-      console.log('tabNot', this.parentMsg)
-    }
+    //   this.router.navigate(['/tree-grid-ccc']);
+    //   this.parentMsg = name;
+    //   console.log('tabNot', this.parentMsg)
+    // }
   }
 
   getPages() {
