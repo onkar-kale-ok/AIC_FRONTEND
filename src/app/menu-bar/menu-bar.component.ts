@@ -63,10 +63,6 @@ export class MenuBarComponent {
     })
   }
 
-  ngAfterViewInit() {
-    console.log("Close Btn", this.closeBtn.nativeElement.click());
-  }
-
   closePopup() {
     if (this.closeBtn && this.closeBtn.nativeElement) {
       this.closeBtn.nativeElement.click();
@@ -102,13 +98,13 @@ export class MenuBarComponent {
       this.parentMsg = name;
       // this.tabList.push('Tab');
     }
-    if (name == "New Tab") {
-      console.log('VerifyNewTab', name)
+    // if (name == "New Tab") {
+    //   console.log('VerifyNewTab', name)
 
-      this.router.navigate(['/tree-grid-ccc']);
-      this.parentMsg = name;
-      console.log('tabNot', this.parentMsg)
-    }
+    //   this.router.navigate(['/tree-grid-ccc']);
+    //   this.parentMsg = name;
+    //   console.log('tabNot', this.parentMsg)
+    // }
   }
 
   getPages() {
