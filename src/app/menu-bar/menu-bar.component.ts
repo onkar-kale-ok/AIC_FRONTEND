@@ -94,18 +94,16 @@ export class MenuBarComponent {
     })
   }
 
-  pageClick(pageId: number) {
+  async pageClick(pageId: number) {
     const endPoint = "pages";
-    this.http.getData(endPoint).subscribe((resp: any) => {
-      this.userPageId = resp.page_id;
-      console.log('userId', this.userPageId)
-    })
+    console.log('pageId', pageId)
+
   }
 
   getPageName() {
     const endPoint = "pages";
     this.http.getData(endPoint).subscribe((resp: any) => {
-      this.pageList = resp.users.map((item: any) => item.page_name);
+      this.pageList = resp.users;
       console.log('pageList', this.pageList);
     })
   }

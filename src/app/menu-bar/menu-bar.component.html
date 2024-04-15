@@ -157,7 +157,7 @@
 
                <form [formGroup]="inputForm">
                   <a class="list-group-item list-group-item-action" *ngFor="let page of pageList"
-                     (click)="pageClick(page.page_id)">{{page}}</a>
+                     (click)="pageClick(page.page_id)">{{page.page_name}}</a>
                </form>
 
             </div>
