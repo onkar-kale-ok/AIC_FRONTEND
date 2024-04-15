@@ -13,7 +13,7 @@ export class TabBarComponent {
   tabForm!: FormGroup;
 
   tabValue: string = "";
-  tabBarList: string[] = [];
+  tabBarList: any ;
   res: any;
   tabLength: number = 1;
   lastElement: any;
@@ -83,13 +83,10 @@ export class TabBarComponent {
   }
 
   getTab() {
-    const endPoint = "tabs";
+    const endPoint = "pages";
     this.http.getData(endPoint).subscribe((resp: any) => {
       this.tabBarList = resp;
-      // console.log(this.tabBarList);
-      // this.res = Math.max.apply(Math, resp.map(function (o: any) { return o.id }));
-      // console.log('max', this.res);
-      // this.tabLength = resp.length
+      // console.log('DB', this.tabBarList)
     })
   }
 

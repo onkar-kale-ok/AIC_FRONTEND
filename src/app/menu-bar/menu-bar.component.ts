@@ -15,6 +15,10 @@ export class MenuBarComponent {
 
   pageList: any;
 
+  pageNames : any;
+
+  userPageId : any;
+
   parentMsg!: string;
 
   inputForm!: FormGroup;
@@ -39,7 +43,7 @@ export class MenuBarComponent {
     this.getContinent();
     this.getCurrency();
     this.user();
-    this.getPages();
+    this.getPageName();
     this.getTab();
 
     this.inputForm = this.fb.group({
@@ -90,28 +94,20 @@ export class MenuBarComponent {
     })
   }
 
-  pageClick(name: string) {
-    if (name != "New Tab") {
-      this.closePopup();
-      console.log('nameValue', name);
-      this.router.navigate([`${name}`]);
-      this.parentMsg = name;
-      // this.tabList.push('Tab');
-    }
-    // if (name == "New Tab") {
-    //   console.log('VerifyNewTab', name)
-
-    //   this.router.navigate(['/tree-grid-ccc']);
-    //   this.parentMsg = name;
-    //   console.log('tabNot', this.parentMsg)
-    // }
-  }
-
-  getPages() {
+  pageClick(pageId: number) {
     const endPoint = "pages";
     this.http.getData(endPoint).subscribe((resp: any) => {
-      this.pageList = resp;
-      console.log('pageList', this.pageList)
+      this.userPageId = resp.page_id;
+      console.log('userId', this.userPageId)
     })
   }
+
+  getPageName() {
+    const endPoint = "pages";
+    this.http.getData(endPoint).subscribe((resp: any) => {
+      this.pageList = resp.users.map((item: any) => item.page_name);
+      console.log('pageList', this.pageList);
+    })
+  }
+  
 }

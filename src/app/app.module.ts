@@ -20,6 +20,7 @@ import { TreeGridBBBComponent } from './tree-grid-bbb/tree-grid-bbb.component';
 import { TreeGridCCCComponent } from './tree-grid-ccc/tree-grid-ccc.component';
 import { TreeGridDDDComponent } from './tree-grid-ddd/tree-grid-ddd.component';
 import { TreeGridEEEComponent } from './tree-grid-eee/tree-grid-eee.component';
+import { PagesComponent } from './pages/pages.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { TreeGridEEEComponent } from './tree-grid-eee/tree-grid-eee.component';
     TreeGridBBBComponent,
     TreeGridCCCComponent,
     TreeGridDDDComponent,
-    TreeGridEEEComponent
+    TreeGridEEEComponent,
+    PagesComponent
   ],
   imports: [
     BrowserModule,
