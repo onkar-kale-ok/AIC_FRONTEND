@@ -15,9 +15,9 @@ export class MenuBarComponent {
 
   pageList: any;
 
-  pageNames : any;
+  pageNames: any;
 
-  userPageId : any;
+  userPageId: any;
 
   parentMsg!: string;
 
@@ -52,19 +52,19 @@ export class MenuBarComponent {
   }
 
   getContinent() {
-    const endPoint = "continent";
-    this.http.getData(endPoint).subscribe((resp: any) => {
-      this.continentList = resp;
-      console.log(this.continentList);
-    })
+    // const endPoint = "continent";
+    // this.http.getData(endPoint).subscribe((resp: any) => {
+    //   this.continentList = resp;
+    //   console.log(this.continentList);
+    // })
   }
 
   getCurrency() {
-    const endPoint = "currency";
-    this.http.getData(endPoint).subscribe((resp: any) => {
-      this.currencyList = resp;
-      console.log(this.currencyList);
-    })
+    // const endPoint = "currency";
+    // this.http.getData(endPoint).subscribe((resp: any) => {
+    //   this.currencyList = resp;
+    //   console.log(this.currencyList);
+    // })
   }
 
   closePopup() {
@@ -90,22 +90,22 @@ export class MenuBarComponent {
     const endPoint = "tabs";
     this.http.getData(endPoint).subscribe((resp: any) => {
       this.tabList = resp;
-      console.log('tabList', this.tabList)
+      // console.log('tabList', this.tabList);
     })
   }
 
-  async pageClick(pageId: number) {
-    const endPoint = "pages";
-    console.log('pageId', pageId)
-
+  async pageClick(pageId: any, pageName: any) {
+    this.closePopup();
+    this.parentMsg = pageName;
+    console.log('pageId', this.parentMsg);
   }
 
   getPageName() {
     const endPoint = "pages";
     this.http.getData(endPoint).subscribe((resp: any) => {
       this.pageList = resp.users;
-      console.log('pageList', this.pageList);
+      // console.log('pageList', this.pageList);
     })
   }
-  
+
 }
