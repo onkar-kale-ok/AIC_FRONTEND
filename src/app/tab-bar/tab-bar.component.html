@@ -3,7 +3,7 @@
    <span class="border border-white" *ngFor="let tab of tabBarList; let i = index">
 
       <!-- Tab Button -->
-      <button type="button" class="btn btn-dark rounded-0" (click)="pageClick(tab)">
+      <button type="button" class="btn btn-dark rounded-0" (click)="tabClick(tab)">
          {{tab}}
       </button>
       <!-- Tab Button -->
@@ -24,6 +24,6 @@
 
 </div>
 
-<!-- <h5>Data Recieved : {{dataRecieved}}</h5> -->
+<h5>Data Recieved : {{dataRecieved}}</h5>
 <!-- {{tabBarList.length}} -->
 <!-- {{this.tabBarList[this.tabBarList.length-1]}} -->

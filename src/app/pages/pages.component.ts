@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { HttpService } from '../services/http.service';
 
 @Component({
   selector: 'app-pages',
@@ -8,9 +9,29 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PagesComponent {
 
-  userPageId : any;
+  userPageId: any | null = null;
 
-  constructor(private actRoute: ActivatedRoute){
-    actRoute.snapshot.paramMap.get('page_id');
+  pageList: any[] = [];
+
+  filteredUser: any[] = [];
+
+  constructor(private actRoute: ActivatedRoute, private http: HttpService) {}
+
+  ngOnInit() {
+    this.actRoute.paramMap.subscribe(params => {
+      this.userPageId = params.get('page_id');
+      this.getPageName();
+    });
   }
+
+  getPageName() {
+    const endPoint = "pages";
+    this.http.getData(endPoint).subscribe(
+      (resp: any) => {
+        this.pageList = resp.users || [];
+        this.filteredUser = this.pageList.filter((user: any) => user.page_id == this.userPageId);
+      }
+    );
+  }
+
 }

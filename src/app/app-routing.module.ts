@@ -16,8 +16,8 @@ const routes: Routes = [
   {path : 'tree-grid-ccc', component:  TreeGridCCCComponent},
   {path : 'tree-grid-ddd', component:  TreeGridDDDComponent},
   {path : 'tree-grid-eee', component:  TreeGridEEEComponent},
-  // {path : 'pages', component : PagesComponent},
-  // {path : 'pages/:page_id', component : PagesComponent}
+  {path : 'pages', component : PagesComponent},
+  {path : 'pages/:page_id', component : PagesComponent}
 ];
 
 @NgModule({

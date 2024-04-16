@@ -71,7 +71,7 @@ export class TabBarComponent {
     console.log('Tab When Deleted', this.tabBarList.length);
   }
 
-  pageClick(pageName: any) {
+  tabClick(pageName: any) {
     if (pageName) {
       console.log('pageName', pageName);
       this.router.navigate([`${pageName}`]);
@@ -83,11 +83,7 @@ export class TabBarComponent {
   }
 
   getTab() {
-    const endPoint = "pages";
-    this.http.getData(endPoint).subscribe((resp: any) => {
-      this.tabBarList = resp;
-      // console.log('DB', this.tabBarList)
-    })
+    this.tabBarList = ["Default Tab"]
   }
 
 }
