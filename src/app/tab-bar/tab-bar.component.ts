@@ -12,12 +12,13 @@ export class TabBarComponent {
 
   tabForm!: FormGroup;
 
-  tabValue: string = "";
-  tabBarList: any ;
+  tabValue: any;
+  tabBarList: any;
   res: any;
   tabLength: number = 1;
   lastElement: any;
   indexOfLastElement: any;
+  pageList: any;
 
   @Input() dataRecieved: any;
 
@@ -28,6 +29,7 @@ export class TabBarComponent {
   ngOnInit() {
     this.getTab();
     this.form();
+    // this.getPageName();
   }
 
   ngOnChanges() {
@@ -41,49 +43,75 @@ export class TabBarComponent {
   }
 
   addTab() {
-    this.tabValue = this.dataRecieved;
-    if (this.tabValue == undefined) {
-      this.tabValue = "New Tab";
-    }
-    if (this.tabValue != undefined) {
-      if (this.tabBarList.includes(this.tabValue)) {
-        if (!(this.tabBarList.includes("New Tab"))) {
-          this.tabBarList.push("New Tab");
-          this.router.navigate(['/'])
-        }
+    console.log('tabBarList', this.tabBarList)
+    if (this.dataRecieved.page_name && this.dataRecieved.page_id) {
+      // Created new object with page_name and page_id
+      this.tabValue = { name: this.dataRecieved.page_name, id: this.dataRecieved.page_id };
+  
+      // Checking if tab is already in the tabBarList[] array
+      const existingTab = this.tabBarList.find((tab:any) => tab.name == this.tabValue.name);
+  
+      // If the tab is not already in the list, push it
+      if (!existingTab) {
+        this.tabBarList.push(this.tabValue);
       }
-      else {
-        // this.tabBarList.push(this.tabValue);
-        const newTabIndex = this.tabBarList.indexOf("New Tab");
-        if (newTabIndex !== -1) {
-
-          this.tabBarList[newTabIndex] = this.tabValue;
-        } else {
-
-          this.tabBarList.push(this.tabValue);
-        }
-      }
+    } else {
+      // If either name or id is undefined, push a New Tab
+      this.tabBarList.push({ name: "New Tab", id: null });
     }
+
+
+    // this.tabValue = this.dataRecieved.page_name;
+    // if (this.tabValue == undefined) {
+    //   this.tabValue = "New Tab";
+    // }
+    // if (this.tabValue != undefined) {
+    //   if (this.tabBarList.includes(this.tabValue)) {
+    //     if (!(this.tabBarList.includes("New Tab"))) {
+    //       this.tabBarList.push("New Tab");
+    //       this.router.navigate(['/'])
+    //     }
+    //   }
+    //   else {
+    //     // this.tabBarList.push(this.tabValue);
+    //     const newTabIndex = this.tabBarList.indexOf("New Tab");
+    //     if (newTabIndex !== -1) {
+
+    //       this.tabBarList[newTabIndex] = this.tabValue;
+    //     } else {
+
+    //       this.tabBarList.push(this.tabValue);
+    //     }
+    //   }
+    // }
   }
+  
 
   deleteTab(index: any) {
     this.tabBarList.splice(index, 1);
+    this.router.navigate(['/']);
     console.log('Tab When Deleted', this.tabBarList.length);
   }
 
-  tabClick(pageName: any) {
-    if (pageName) {
-      console.log('pageName', pageName);
-      this.router.navigate([`${pageName}`]);
-    }
-    if (pageName == "New Tab") {
-      // This Is Default Tab If We Want To Keep Page Details Blank In "New Tab"
+  tabClick(page: any) {
+    if (page && page.id) {
+      console.log('pageName', page.name, page.id);
+      this.router.navigate(['/pages', page.id]);
+    } else if (page && page.name == "New Tab" || "Default Tab") {
       this.router.navigate(['/']);
     }
   }
 
   getTab() {
-    this.tabBarList = ["Default Tab"]
+    this.tabBarList = [{ name: "Default Tab", id: null }]
   }
+
+  // getPageName() {
+  //   const endPoint = "pages";
+  //   this.http.getData(endPoint).subscribe((resp: any) => {
+  //     this.pageList = resp.users;
+  //     // console.log('pageList', this.pageList);
+  //   })
+  // }
 
 }
