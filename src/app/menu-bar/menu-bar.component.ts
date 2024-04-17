@@ -96,7 +96,7 @@ export class MenuBarComponent {
 
   async pageClick(pageId: any, pageName: any) {
     this.closePopup();
-    this.parentMsg = pageName;
+    this.parentMsg = pageId;
     console.log('pageId', this.parentMsg);
   }
 
