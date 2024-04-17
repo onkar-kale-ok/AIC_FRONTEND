@@ -29,7 +29,6 @@ export class TabBarComponent {
   ngOnInit() {
     this.getTab();
     this.form();
-    // this.getPageName();
   }
 
   ngOnChanges() {
@@ -43,50 +42,28 @@ export class TabBarComponent {
   }
 
   addTab() {
-    console.log('tabBarList', this.tabBarList)
-    if (this.dataRecieved.page_name && this.dataRecieved.page_id) {
-      // Created new object with page_name and page_id
-      this.tabValue = { name: this.dataRecieved.page_name, id: this.dataRecieved.page_id };
-  
-      // Checking if tab is already in the tabBarList[] array
-      const existingTab = this.tabBarList.find((tab:any) => tab.name == this.tabValue.name);
-  
-      // If the tab is not already in the list, push it
-      if (!existingTab) {
-        this.tabBarList.push(this.tabValue);
-      }
-    } else {
-      // If either name or id is undefined, push a New Tab
+    if (!this.dataRecieved) {
+      // If this.dataRecieved is undefined, push a default tab
       this.tabBarList.push({ name: "New Tab", id: null });
+      return; // Exit the function early
     }
-
-
-    // this.tabValue = this.dataRecieved.page_name;
-    // if (this.tabValue == undefined) {
-    //   this.tabValue = "New Tab";
-    // }
-    // if (this.tabValue != undefined) {
-    //   if (this.tabBarList.includes(this.tabValue)) {
-    //     if (!(this.tabBarList.includes("New Tab"))) {
-    //       this.tabBarList.push("New Tab");
-    //       this.router.navigate(['/'])
-    //     }
-    //   }
-    //   else {
-    //     // this.tabBarList.push(this.tabValue);
-    //     const newTabIndex = this.tabBarList.indexOf("New Tab");
-    //     if (newTabIndex !== -1) {
-
-    //       this.tabBarList[newTabIndex] = this.tabValue;
-    //     } else {
-
-    //       this.tabBarList.push(this.tabValue);
-    //     }
-    //   }
-    // }
+  
+    // Check if the default tab exists and remove it
+    const defaultTabIndex = this.tabBarList.findIndex((tab:any) => tab.name == "New Tab" && tab.id == null);
+    if (defaultTabIndex != -1) {
+      this.tabBarList.splice(defaultTabIndex, 1);
+    }
+  
+    // Add the tab based on received data
+    this.tabValue = { name: this.dataRecieved.page_name, id: this.dataRecieved.page_id };
+    const existingTab = this.tabBarList.find((tab: any) => tab.name == this.tabValue.name);
+    if (!existingTab) {
+      this.tabBarList.push(this.tabValue);
+    }
   }
   
-
+  
+  
   deleteTab(index: any) {
     this.tabBarList.splice(index, 1);
     this.router.navigate(['/']);
@@ -105,13 +82,5 @@ export class TabBarComponent {
   getTab() {
     this.tabBarList = [{ name: "Default Tab", id: null }]
   }
-
-  // getPageName() {
-  //   const endPoint = "pages";
-  //   this.http.getData(endPoint).subscribe((resp: any) => {
-  //     this.pageList = resp.users;
-  //     // console.log('pageList', this.pageList);
-  //   })
-  // }
 
 }
