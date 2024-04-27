@@ -22,7 +22,7 @@ export class RegisterComponent {
   }
 
   constructor(private backend: BackendService, private token: TokenService, private router: Router, private Auth: AuthService, private ssoauthService:SocialAuthService) {
-    console.log(this.isLoggedin);
+    // console.log(this.isLoggedin);
    }
 
   public error = [];
@@ -32,9 +32,7 @@ export class RegisterComponent {
       this.user = user;
       this.loggedIn = (user != null);
       this.isLoggedin = user != null;
-      console.log("Login User = " + this.user.name + this.user.email);
-
-      
+      // console.log("Login User = " + this.user.name + this.user.email);
     });
   }
 
@@ -50,7 +48,7 @@ export class RegisterComponent {
 
   signWithGoogle():void{console.log("googlesignin"); //for google sign in
     this.ssoauthService.signIn(GoogleLoginProvider.PROVIDER_ID);
-    console.log(GoogleLoginProvider.PROVIDER_ID,"googlesignin1");
+    // console.log(GoogleLoginProvider.PROVIDER_ID,"googlesignin1");
   }
 
   signOut():any{ //for google out
