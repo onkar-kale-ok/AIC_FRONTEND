@@ -3,6 +3,7 @@ import { HttpService } from '../services/http.service';
 import { AfterLoginServiceService } from '../services/after-login-service.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-menu-bar',
@@ -40,31 +41,12 @@ export class MenuBarComponent {
   }
 
   ngOnInit() {
-    this.getContinent();
-    this.getCurrency();
     this.user();
     this.getPageName();
-    this.getTab();
 
     this.inputForm = this.fb.group({
       keySearched: ['', []]
     })
-  }
-
-  getContinent() {
-    // const endPoint = "continent";
-    // this.http.getData(endPoint).subscribe((resp: any) => {
-    //   this.continentList = resp;
-    //   console.log(this.continentList);
-    // })
-  }
-
-  getCurrency() {
-    // const endPoint = "currency";
-    // this.http.getData(endPoint).subscribe((resp: any) => {
-    //   this.currencyList = resp;
-    //   console.log(this.currencyList);
-    // })
   }
 
   closePopup() {
@@ -86,24 +68,16 @@ export class MenuBarComponent {
     localStorage.clear();
   }
 
-  getTab() {
-    const endPoint = "tabs";
-    this.http.getData(endPoint).subscribe((resp: any) => {
-      this.tabList = resp;
-      // console.log('tabList', this.tabList);
-    })
-  }
-
-  async pageClick(pageId: any, pageName: any) {
+  async pageClick(page: any, pageName: any) {
     this.closePopup();
-    this.parentMsg = pageId;
-    console.log('pageId', this.parentMsg);
+    this.parentMsg = page;
+    // console.log('onPageClick', this.parentMsg);
   }
 
   getPageName() {
-    const endPoint = "pages";
+    const endPoint = "getAllPages";
     this.http.getData(endPoint).subscribe((resp: any) => {
-      this.pageList = resp.users;
+      this.pageList = resp;
       // console.log('pageList', this.pageList);
     })
   }

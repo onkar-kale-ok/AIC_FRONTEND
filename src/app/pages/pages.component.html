@@ -1,36 +1,34 @@
 <table class="table table-bordered">
-   <thead>
-     <tr>
-       <th scope="col">ID</th>
-       <th scope="col">Page Name</th>
-       <th scope="col">Type</th>
-       <th scope="col">Edition</th>
-       <th scope="col">Owner</th>
-       <th scope="col">URL</th>
-       <th scope="col">SEO</th>
-       <th scope="col">Status</th>
-       <th scope="col">Comment</th>
-       <th scope="col">Created By</th>
-       <th scope="col">Updated By</th>
-       <th scope="col">Created At</th>
-       <th scope="col">Updated At</th>
-     </tr>
-   </thead>
-   <tbody>
-     <tr *ngFor="let page of filteredUser; let i = index">
-       <td>{{page.page_id}}</td>
-       <td>{{page.page_name}}</td>
-       <td>{{page.page_type}}</td>
-       <td>{{page.page_edition}}</td>
-       <td>{{page.page_owner}}</td>
-       <td>{{page.page_url}}</td>
-       <td>{{page.page_seo}}</td>
-       <td>{{page.page_status}}</td>
-       <td>{{page.page_comment}}</td>
-       <td>{{page.created_by}}</td>
-       <td>{{page.updated_by}}</td>
-       <td>{{page.created_at}}</td>
-       <td>{{page.updated_at}}</td>
-     </tr>
-   </tbody>
- </table>
+  <thead>
+    <tr>
+      <th scope="col">Row ID</th>
+      <th scope="col">Page Name</th>
+      <th scope="col">Page Type</th>
+      <th scope="col">Page Edition</th>
+      <th scope="col">Page Owner</th>
+      <th scope="col">Page URL</th>
+      <th scope="col">Page SEO</th>
+      <th scope="col">Page Status</th>
+      <th scope="col">Page Comment </th>
+      <th scope="col">Row Type</th>
+      <th scope="col">Row Status</th>
+      <th scope="col">Page ID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let page of pageList; let i = index">
+      <td>{{page['Row ID']}}</td>
+      <td>{{page['Page Name']}}</td>
+      <td>{{page['Page Type']}}</td>
+      <td>{{page['Page Edition']}}</td>
+      <td>{{page['Page Owner']}}</td>
+      <td>{{page['Page URL']}}</td>
+      <td>{{page['Page SEO']}}</td>
+      <td>{{page['Page Status']}}</td>
+      <td>{{page['Page Comment ']}}</td>
+      <td>{{page['Row Type']}}</td>
+      <td>{{page['Row Status']}}</td>
+      <td>{{page['Page ID']}}</td>
+    </tr>
+  </tbody>
+</table>

@@ -15,7 +15,7 @@ export class PagesComponent {
 
   filteredUser: any[] = [];
 
-  constructor(private actRoute: ActivatedRoute, private http: HttpService) {}
+  constructor(private actRoute: ActivatedRoute, private http: HttpService) { }
 
   ngOnInit() {
     this.actRoute.paramMap.subscribe(params => {
@@ -24,12 +24,22 @@ export class PagesComponent {
     });
   }
 
+  // getPageName() {
+  //   const endPoint = "getAllPages";
+  //   this.http.getData(endPoint).subscribe(
+  //     (resp: any) => {
+  //       this.pageList = resp || [];
+  //       this.filteredUser = this.pageList.filter((user: any) => user['Page ID'] == this.userPageId);
+  //     }
+  //   );
+  // }
+
   getPageName() {
-    const endPoint = "pages";
+    const endPoint = "getPageData?pageId=" + this.userPageId;
     this.http.getData(endPoint).subscribe(
       (resp: any) => {
-        this.pageList = resp.users || [];
-        this.filteredUser = this.pageList.filter((user: any) => user.page_id == this.userPageId);
+        this.pageList = resp;
+        // console.log('getPageResp',this.pageList);
       }
     );
   }
