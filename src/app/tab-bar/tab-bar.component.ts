@@ -84,7 +84,7 @@ export class TabBarComponent {
   tabClick(page: any) {
     if (page && page.id) {
       // console.log('pageName', page.name, page.id);
-      this.router.navigate(['/pages', page.id]);
+      this.router.navigate([page.name.replace(" ", "-"), page.id]);
     } else if (page && page.name == "New Tab" || "Default Tab") {
       this.router.navigate(['/']);
     }

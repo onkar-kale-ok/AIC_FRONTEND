@@ -157,7 +157,7 @@
 
                <form [formGroup]="inputForm">
                   <a class="list-group-item list-group-item-action" *ngFor="let page of pageList"
-                     (click)="pageClick(page, page['Page Name'])" [routerLink]="[page['Page Name'],page['Page ID']]">{{page['Page Name']}}</a>
+                     (click)="pageClick(page, page['Page Name'])" [routerLink]="[page['Page Name'] | spaceToHyphen,page['Page ID']]">{{page['Page Name']}}</a>
                </form>
 
             </div>
