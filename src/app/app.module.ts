@@ -17,6 +17,13 @@ import { RegisterComponent } from './register/register.component';
 import { TabBarComponent } from './tab-bar/tab-bar.component';
 import { PagesComponent } from './pages/pages.component';
 import { SpaceToHyphenPipe } from './pipes/space-to-hyphen.pipe';
+import { HttpClient } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+
+export function httpLoaderFactory(http: HttpClient){
+  return new TranslateHttpLoader(http)
+}
 
 @NgModule({
   declarations: [
@@ -37,6 +44,15 @@ import { SpaceToHyphenPipe } from './pipes/space-to-hyphen.pipe';
     FormsModule,
     ReactiveFormsModule,
     GoogleSigninButtonModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (http: HttpClient) => {
+          return new TranslateHttpLoader(http);
+        },
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [
     // {

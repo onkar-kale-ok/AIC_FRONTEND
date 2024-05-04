@@ -3,14 +3,15 @@
    margin-right: 2.5%;
 } */
 
-span{
+span {
    border: 1px solid black;
-   padding: 2px;
+   padding-left: 2px;
+   padding-right: 2px;
    cursor: pointer;
    border-radius: 3px;
 }
 
-li.disabled{
+li.disabled {
    cursor: not-allowed;
    opacity: .7;
-  }
+}

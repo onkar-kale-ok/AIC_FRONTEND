@@ -21,10 +21,10 @@
       <span><i class="bi bi-translate"> <i class="bi bi-check-square"></i></i></span>
    </div>
 
-   <!-- <div class="form-check">
-      <i class="bi bi-translate"></i>
-      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-   </div> -->
+   <span id="google_element">
+      <div class="skiptranslate goog-te-gadget" dir="ltr">
+      </div>
+   </span>
 
    <div>
       <span class="dropdown">
@@ -55,55 +55,87 @@
    </div>
 
    <div>
-      <span type="" class="" data-bs-toggle="modal" data-bs-target="#exampleModal3">Page</span>
+      <span type="" class="" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+         Page
+      </span>
    </div>
 
    <div>
-      <span>Edition <i class="bi bi-check-square"></i></span>
+      <span>
+         Edition
+         <i class="bi bi-check-square"></i>
+      </span>
    </div>
 
    <div>
-      <span>View</span>
+      <span>
+         View
+      </span>
    </div>
 
    <div>
-      <span>Cols</span>
+      <span>
+         Cols
+      </span>
    </div>
 
    <div>
-      <span>Freeze: N <i class="bi bi-arrows-vertical"></i></span>
+      <span>
+         Freeze : N <i class="bi bi-arrows-vertical"></i>
+      </span>
    </div>
 
    <div>
-      <span>Expand: N <i class="bi bi-arrows-vertical"></i></span>
+      <span>
+         Expand : N <i class="bi bi-arrows-vertical"></i>
+      </span>
    </div>
 
    <div>
-      <span>Sort <i class="bi bi-check-square"></i></span>
+      <span>
+         Sort
+         <i class="bi bi-check-square"></i>
+      </span>
    </div>
 
    <div>
-      <span>Filter <i class="bi bi-check-square"></i></span>
+      <span>
+         Filter
+         <i class="bi bi-check-square"></i>
+      </span>
    </div>
 
    <div>
-      <span>Level-Set <i class="bi bi-check-square"></i></span>
+      <span>
+         Level-Set
+         <i class="bi bi-check-square"></i>
+      </span>
    </div>
 
    <div>
-      <span>Cats</span>
+      <span>
+         Cats
+      </span>
    </div>
 
    <div>
-      <span>Compare <i class="bi bi-check-square"></i></span>
+      <span>
+         Compare
+         <i class="bi bi-check-square"></i>
+      </span>
    </div>
 
    <div>
-      <span>Timer <i class="bi bi-check-square"></i></span>
+      <span>
+         Timer
+         <i class="bi bi-check-square"></i>
+      </span>
    </div>
 
    <div>
-      <span> Countdown & Locks Wait Status</span>
+      <span>
+         Countdown & Locks Wait Status
+      </span>
    </div>
 
 </div>
@@ -157,7 +189,8 @@
 
                <form [formGroup]="inputForm">
                   <a class="list-group-item list-group-item-action" *ngFor="let page of pageList"
-                     (click)="pageClick(page, page['Page Name'])" [routerLink]="[page['Page Name'] | spaceToHyphen,page['Page ID']]">{{page['Page Name']}}</a>
+                     (click)="pageClick(page, page['Page Name'])"
+                     [routerLink]="[page['Page Name'] | spaceToHyphen,page['Page ID']]">{{page['Page Name']}}</a>
                </form>
 
             </div>
@@ -169,5 +202,3 @@
       </div>
    </div>
 </div>
-
-<!-- <router-outlet></router-outlet> -->
