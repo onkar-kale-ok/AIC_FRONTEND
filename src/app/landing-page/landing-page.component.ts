@@ -2,6 +2,7 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TabulatorFull as Tabulator } from 'tabulator-tables';
 import { HttpService } from '../services/http.service';
+import { TabulatorService } from '../services/tabulator.service';
 
 @Component({
   selector: 'landing-page',
@@ -15,25 +16,37 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
   filterParam: string = '';
   tab = document.createElement('div');
 
+  sortButtonsEnabled: boolean = false;
+
   table_def = [
-    // { title: 'Name', field: 'name' }, //never hide this column
-    { title: 'Row ID', field: 'Row ID' },
-    { title: 'Page Name', field: 'Page Name' }, //hide this column first
-    { title: 'Page Type', field: 'Page Type' },
-    { title: 'Page Edition', field: 'Page Edition' },
-    { title: 'Page Owner', field: 'Page Owner' },
-    { title: 'Page URL', field: 'Page URL' },
-    { title: 'Page SEO', field: 'Page SEO' },
-    { title: 'Page Status', field: 'Page Status' },
-    { title: 'Page Comment', field: 'Page Comment ' },
-    { title: 'Row Type', field: 'Row Type' },
-    { title: 'Row Status', field: 'Row Status' },
-    { title: 'Page ID', field: 'Page ID' },
+    { title: 'Row ID', field: 'Row ID', headerSort: this.sortButtonsEnabled },
+    { title: 'Page Name', field: 'Page Name', headerSort: this.sortButtonsEnabled },
+    { title: 'Page Type', field: 'Page Type', headerSort: this.sortButtonsEnabled },
+    { title: 'Page Edition', field: 'Page Edition', headerSort: this.sortButtonsEnabled },
+    { title: 'Page Owner', field: 'Page Owner', headerSort: this.sortButtonsEnabled },
+    { title: 'Page URL', field: 'Page URL', headerSort: this.sortButtonsEnabled },
+    { title: 'Page SEO', field: 'Page SEO', headerSort: this.sortButtonsEnabled },
+    { title: 'Page Status', field: 'Page Status', headerSort: this.sortButtonsEnabled },
+    { title: 'Page Comment', field: 'Page Comment ', headerSort: this.sortButtonsEnabled },
+    { title: 'Row Type', field: 'Row Type', headerSort: this.sortButtonsEnabled },
+    { title: 'Row Status', field: 'Row Status', headerSort: this.sortButtonsEnabled },
+    { title: 'Page ID', field: 'Page ID', headerSort: this.sortButtonsEnabled },
   ];
 
-  constructor(private actRoute: ActivatedRoute, private http: HttpService) { }
+  constructor(private actRoute: ActivatedRoute, private http: HttpService, private tabSrv: TabulatorService) { }
 
   ngOnInit() {
+    // Other initialization code...
+
+    // Subscribe to refresh events
+    this.tabSrv.onRefresh().subscribe(() => {
+      this.refreshTabulatorData();
+    });
+
+    this.tabSrv.onSort().subscribe(() => {
+      this.toggleSortButton();
+    });
+
     this.actRoute.paramMap.subscribe(params => {
       this.userPageId = params.get('page_id');
       this.getPageName();
@@ -75,5 +88,20 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
         console.error("Error fetching page data:", error);
       }
     );
+  }
+
+  refreshTabulatorData() {
+    //Used pop to check whether data removes or not
+    this.pageList.pop();
+    //Used pop to check whether data removes or not
+    this.exTable?.setData(this.pageList);
+  }
+
+  toggleSortButton() {
+    this.sortButtonsEnabled = !this.sortButtonsEnabled;
+    this.table_def.forEach(column => {
+      column.headerSort = this.sortButtonsEnabled;
+    });
+    this.exTable?.setColumns(this.table_def);
   }
 }

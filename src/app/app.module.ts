@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
-import {  GoogleSigninButtonModule } from '@abacritt/angularx-social-login';
+import { GoogleSigninButtonModule } from '@abacritt/angularx-social-login';
 import {
   GoogleLoginProvider,
   FacebookLoginProvider
@@ -20,8 +20,10 @@ import { SpaceToHyphenPipe } from './pipes/space-to-hyphen.pipe';
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RefreshComponent } from './refresh/refresh.component';
 
-export function httpLoaderFactory(http: HttpClient){
+export function httpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http)
 }
 
@@ -34,10 +36,12 @@ export function httpLoaderFactory(http: HttpClient){
     RegisterComponent,
     TabBarComponent,
     PagesComponent,
-    SpaceToHyphenPipe
+    SpaceToHyphenPipe,
+    RefreshComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     SocialLoginModule,
@@ -62,7 +66,7 @@ export function httpLoaderFactory(http: HttpClient){
     //     providers: [
     //       {
     //         id: GoogleLoginProvider.PROVIDER_ID,
-            
+
     //         provider: new GoogleLoginProvider('574452326163-9k8tlvck1qda0b3b870ip7jdaeskdqdi.apps.googleusercontent.com',
     //         {
     //          // scopes : environment.auth.scopes,

@@ -3,8 +3,8 @@ import { HttpService } from '../services/http.service';
 import { AfterLoginServiceService } from '../services/after-login-service.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { TranslateService } from '@ngx-translate/core';
+import { Location } from '@angular/common';
+import { TabulatorService } from '../services/tabulator.service';
 
 @Component({
   selector: 'app-menu-bar',
@@ -35,22 +35,9 @@ export class MenuBarComponent {
 
   userLoggedIn: boolean = true;
 
-  checkBoxShow : boolean = true;
-
   @ViewChild('closeBtn') closeBtn: ElementRef<any>;
 
-  constructor(private http: HttpService, private afterLogin: AfterLoginServiceService, private fb: FormBuilder, private router: Router, private Translate: TranslateService) {
-    this.Translate.setDefaultLang('en')
-  }
-
-  switchLanguageToHindi(language:string){
-    this.Translate.use(language);
-    this.checkBoxShow = false;
-  }
-
-  switchLanguageToEnglish(language:string){
-    this.Translate.use(language);
-    this.checkBoxShow = true;
+  constructor(private http: HttpService, private afterLogin: AfterLoginServiceService, private fb: FormBuilder, private router: Router, public location: Location, private tabSrv: TabulatorService) {
   }
 
   ngOnInit() {
@@ -94,5 +81,25 @@ export class MenuBarComponent {
       // console.log('pageList', this.pageList);
     })
   }
+
+  recieveData: any;
+
+  pageName: any;
+  pageId: any;
+
+  getData(data: any) {
+    this.recieveData = data;
+    console.log('recieveData', this.recieveData)
+  }
+
+  // Method to trigger refresh
+  refreshPage() {
+    this.tabSrv.triggerRefresh();
+  }
+
+  // Method to trigger sort
+  sort(){
+    this.tabSrv.triggerSort();
+  } 
 
 }

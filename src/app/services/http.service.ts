@@ -6,31 +6,32 @@ import { Injectable } from '@angular/core';
 })
 export class HttpService {
 
-  
-  // baseUrl : string = "http://localhost:3030/";
-  baseUrl : string = "http://localhost:5656/";
 
-  constructor(private http:HttpClient) {
+  // baseUrl : string = "http://localhost:3030/";
+  baseUrl: string = "http://localhost:5656/";
+
+  constructor(private http: HttpClient) {
 
   }
 
-  postData(endPoint : string, data : any){
+  postData(endPoint: string, data: any) {
     const url = this.baseUrl + endPoint;
     return this.http.post(url, data);
   }
 
-  getData(endPoint : string){
+  getData(endPoint: string) {
     const url = this.baseUrl + endPoint;
     return this.http.get(url);
   }
 
-  updateData(endPoint : string, data : any){
+  updateData(endPoint: string, data: any) {
     const url = this.baseUrl + endPoint;
     return this.http.put(url, data);
   }
 
-  deleteData(endPoint : string){
+  deleteData(endPoint: string) {
     const url = this.baseUrl + endPoint;
     return this.http.delete(url);
   }
+
 }

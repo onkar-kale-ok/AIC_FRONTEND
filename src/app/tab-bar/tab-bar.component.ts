@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { HttpService } from '../services/http.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -21,6 +21,12 @@ export class TabBarComponent {
   pageList: any;
 
   @Input() dataRecieved: any;
+  @Output() sendData: EventEmitter<any> = new EventEmitter<any>();
+  // pageObj: any;
+
+  // sendDataFn(){
+  //   this.sendData.emit(this.pageObj);
+  // }
 
   constructor(private http: HttpService, private fb: FormBuilder, private router: Router) {
 
@@ -29,6 +35,10 @@ export class TabBarComponent {
   ngOnInit() {
     this.getTab();
     this.form();
+    
+    //By default or after refresh it send to root url
+    this.router.navigate(['/']);
+    //By default or after refresh it send to root url
   }
 
   ngOnChanges() {
@@ -82,6 +92,7 @@ export class TabBarComponent {
   }
 
   tabClick(page: any) {
+    this.sendData.emit(page);
     if (page && page.id) {
       // console.log('pageName', page.name, page.id);
       this.router.navigate([page.name.replace(" ", "-"), page.id]);
