@@ -1,9 +1,9 @@
-<app-tab-bar [dataRecieved]="parentMsg"></app-tab-bar>
+<app-tab-bar [dataRecieved]="parentMsg" (sendData)="getData($event)"></app-tab-bar>
 
 <div class="d-flex justify-content-between main-width mt-3 mb-3">
 
    <div>
-      <span><i class="bi bi-arrow-clockwise"></i></span>
+      <span><i class="bi bi-arrow-clockwise" (click)="refreshPage()"></i></span>
    </div>
 
    <div>
@@ -94,7 +94,9 @@
    <div>
       <span>
          Sort
-         <i class="bi bi-check-square"></i>
+         <input class="form-check-input border border-secondary cursor" type="checkbox" value="" id="sortCheckbox" (click)="sort()">
+         <label class="form-check-label" for="sortCheckbox">
+         </label>
       </span>
    </div>
 
