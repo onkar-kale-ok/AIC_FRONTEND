@@ -15,13 +15,13 @@ export class MenuBarComponent {
 
   title = 'Tab';
 
-  pageList: any;
+  pageList: any = [{pageId:1,pageName:'Page1'},{pageId:2,pageName:'Page2'},{pageId:3,pageName:'Page3'}];
 
   pageNames: any;
 
   userPageId: any;
 
-  parentMsg!: string;
+  parentMsg: any;
 
   inputForm!: FormGroup;
 
@@ -68,7 +68,7 @@ export class MenuBarComponent {
     localStorage.clear();
   }
 
-  async pageClick(page: any, pageName: any) {
+  async pageClick(page: any) {
     this.closePopup();
     this.parentMsg = page;
     // console.log('onPageClick', this.parentMsg);
