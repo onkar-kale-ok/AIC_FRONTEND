@@ -15,7 +15,7 @@ export class MenuBarComponent {
 
   title = 'Tab';
 
-  pageList: any;
+  pageList: any = [{'Page Name':'page1', 'Page ID':1}];
 
   pageNames: any;
 
