@@ -1,5 +1,7 @@
 <app-tab-bar [dataRecieved]="parentMsg" (sendData)="getData($event)"></app-tab-bar>
 
+<!-- MENU BAR WITHOUT RESPONSIVE (OLD CODE) -->
+
 <div class="d-flex justify-content-between main-width mt-3 mb-3">
 
    <div>
@@ -141,6 +143,136 @@
    </div>
 
 </div>
+
+<!-- MENU BAR WITHOUT RESPONSIVE (OLD CODE) -->
+
+<!-- RESPONSIVE MENU BAR -->
+
+<!-- <body>
+   <div class="responsive">
+      <div class="column">
+         <span><i class="bi bi-arrow-clockwise" (click)="refreshPage()"></i></span>
+      </div>
+      <div class="column">
+         <span class="dropdown">
+            <a class="text-decoration-none text-dark" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+               <i class="bi bi-globe"></i>
+            </a>
+            <ul class="dropdown-menu">
+               <li><a class="dropdown-item" *ngFor="let continent of continentList">{{continent}}</a></li>
+            </ul>
+         </span>
+      </div>
+      <div class="column">
+      <span id="google_element">
+         <div class="skiptranslate goog-te-gadget" dir="ltr">
+         </div>
+      </span>
+      </div>
+      <div class="column">
+         <span class="dropdown">
+            <a class="text-decoration-none text-dark" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+               EU<i class="bi bi-currency-euro"></i>
+            </a>
+            <ul class="dropdown-menu">
+               <li><a class="dropdown-item" *ngFor="let currency of currencyList">{{currency}}</a></li>
+            </ul>
+         </span>
+      </div>
+      <div class="column">
+         <span class="dropdown">
+            <a class="text-decoration-none text-dark" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+               User
+            </a>
+            <ul class="dropdown-menu">
+               <li><a class="dropdown-item dropdown-item exampleModalLabel" type="button" data-bs-toggle="modal"
+                     data-bs-target="#exampleModal2" [class.disabled]="!userLoggedIn">Login</a></li>
+               <li><a class="dropdown-item" [class.disabled]="userLoggedIn">Profile</a></li>
+               <li><a class="dropdown-item" [class.disabled]="userLoggedIn" (click)="logout()">Logout</a></li>
+               <li><a class="dropdown-item exampleModalLabel" type="button" data-bs-toggle="modal"
+                     data-bs-target="#exampleModal1" [class.disabled]="!userLoggedIn">Register</a></li>
+               <li><a class="dropdown-item">Close</a></li>
+            </ul>
+         </span>
+      </div>
+      <div class="column">
+         <span type="" class="" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+            Page
+         </span>
+      </div>
+      <div class="column">
+         <span>
+            Edition
+            <i class="bi bi-check-square"></i>
+         </span>
+      </div>
+      <div class="column">
+         <span>
+            View
+         </span>
+      </div>
+      <div class="column">
+         <span>
+            Cols
+         </span>
+      </div>
+      <div class="column">
+         <span>
+            Freeze : N <i class="bi bi-arrows-vertical"></i>
+         </span>
+      </div>
+      <div class="column">
+         <span>
+            Expand : N <i class="bi bi-arrows-vertical"></i>
+         </span>
+      </div>
+      <div class="column">
+         <span>
+            Sort
+            <input class="form-check-input border border-secondary cursor" type="checkbox" value="" id="sortCheckbox"
+               (click)="sort()">
+            <label class="form-check-label" for="sortCheckbox">
+            </label>
+         </span>
+      </div>
+      <div class="column">
+         <span>
+            Filter
+            <i class="bi bi-check-square"></i>
+         </span>
+      </div>
+      <div class="column">
+         <span>
+            Level-Set
+            <i class="bi bi-check-square"></i>
+         </span>
+      </div>
+      <div class="column">
+         <span>
+            Cats
+         </span>
+      </div>
+      <div class="column">
+         <span>
+            Compare
+            <i class="bi bi-check-square"></i>
+         </span>
+      </div>
+      <div class="column">
+         <span>
+            Timer
+            <i class="bi bi-check-square"></i>
+         </span>
+      </div>
+      <div class="column">
+         <span>
+            Countdown & Locks Wait Status
+         </span>
+      </div>
+   </div>
+</body> -->
+
+<!-- RESPONSIVE MENU BAR -->
 
 
 <!-- Modal For Register -->
