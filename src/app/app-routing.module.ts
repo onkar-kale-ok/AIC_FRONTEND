@@ -8,7 +8,7 @@ import { RefreshComponent } from './refresh/refresh.component';
 const routes: Routes = [
   // {path : 'login', component : LoginComponent},
   // {path : 'pages', component : PagesComponent},
-  { path: ':pageName/:pageId', component: LandingPageComponent },
+  { path: ':page_name/:page_id', component: LandingPageComponent },
   { path: 'refresh', component: RefreshComponent }
 ];
 

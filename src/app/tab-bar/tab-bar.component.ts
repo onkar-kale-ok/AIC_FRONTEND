@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { HttpService } from '../services/http.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab-bar',
@@ -27,19 +27,17 @@ export class TabBarComponent {
   // sendDataFn(){
   //   this.sendData.emit(this.pageObj);
   // }
-pageId:any
-pageName:any
-  constructor(private http: HttpService, private fb: FormBuilder, private router: Router,private route: ActivatedRoute) {
+
+  constructor(private http: HttpService, private fb: FormBuilder, private router: Router) {
 
   }
 
   ngOnInit() {
     this.getTab();
     this.form();
-    this.pageId = this.route.snapshot.paramMap.get('pageId');
-    this.pageName = this.route.snapshot.paramMap.get('pageName')
+    
     //By default or after refresh it send to root url
-    // this.router.navigate(['/']);
+    this.router.navigate(['/']);
     //By default or after refresh it send to root url
   }
 
