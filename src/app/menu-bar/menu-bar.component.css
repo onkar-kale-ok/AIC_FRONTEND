@@ -4,6 +4,7 @@
 } */
 
 span {
+   display: inline-block;
    border: 1px solid black;
    padding-left: 2px;
    padding-right: 2px;
@@ -19,3 +20,21 @@ li.disabled {
 .cursor{
    cursor: pointer;
 }
+
+/* RESPONSIVE MENU BAR */
+
+.responsive {
+   display: flex;
+   flex-wrap: nowrap; /* Prevent wrapping of columns */
+   overflow-x: auto; /* Enable horizontal scrolling */
+}
+.column {
+   flex: 0 0 auto; /* Columns do not shrink or grow */
+   padding-top: 12px;
+   padding-bottom: 12px;
+   padding-left: 9px;
+   padding-right: 9px;
+   white-space: nowrap; /* Prevent text wrapping */
+}
+
+/* RESPONSIVE MENU BAR */
